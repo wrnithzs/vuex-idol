@@ -14,9 +14,9 @@ export default new Vuex.Store({
           id: doc.id,
           idol: doc.data().idol,
           end: doc.data().end,
+          start: doc.data().start,
           eventName: doc.data().eventName,
-          location: doc.data().location,
-          start: doc.data().start
+          location: doc.data().location
         }
         console.log(doc.id, ' => ', doc.data())
         eventlist.push(event)
@@ -36,6 +36,24 @@ export default new Vuex.Store({
         peoplelist.push(person)
       })
       return peoplelist
+    },
+    addEvent ({ commit }, event) {
+      db.collection('events').add({
+        idol: event.idol,
+        end: event.end,
+        start: event.start,
+        eventName: event.eventName,
+        location: event.location
+      })
+    },
+    updateEvent ({ commit }, event) {
+      db.collection('events').doc(event.id).set({
+        idol: event.idol,
+        end: event.end,
+        start: event.start,
+        eventName: event.eventName,
+        location: event.location
+      })
     }
   }
 })

@@ -37,34 +37,30 @@ import { mapActions } from 'vuex'
 export default {
   data () {
     return {
-      event: {
+      editevent: {
         idol: '',
+        eventName: '',
         start: '',
         end: '',
-        location: '',
-        eventName: ''
+        location: ''
       }
     }
   },
+  mounted () {
+    const eventID = this.$route.params.id
+    console.log(eventID)
+  },
   methods: {
     ...mapActions({
-      addEvent: 'addEvent'
+      updateEvent: 'updatEvent'
     }),
     save () {
-      this.addEvent(this.event)
-      this.$router.push({ path: '/' })
+      this.updateEvent(this.event)
     }
   }
 }
 </script>
 
 <style>
-@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css");
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+
 </style>

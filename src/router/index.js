@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import CreateEvent from '../components/CreateEvent.vue'
 import Artist from '../components/Artist.vue'
+import EditEvent from '../components/EditEvent.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/artist',
     name: 'Artist',
     component: Artist
+  },
+  {
+    path: '/editEvent',
+    name: 'EditEvent',
+    component: EditEvent
   }
 ]
 
